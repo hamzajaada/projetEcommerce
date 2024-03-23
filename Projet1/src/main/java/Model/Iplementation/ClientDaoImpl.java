@@ -17,19 +17,15 @@ public class ClientDaoImpl implements ClientDao {
 
     @Override
     public void AddClient(Client c) throws SQLException {
-<<<<<<< HEAD
-
-=======
->>>>>>> b855993589bb469dca46efc3b0e4fdd3b2a78e80
         try (Connection connection = DbConnection.getConnexion();
             PreparedStatement preparedStatement = connection.prepareStatement(INSERT_CLIENT_SQL)) {
-            preparedStatement.setString(1, c.getNom() );
-            preparedStatement.setString(2, c.getPrenom() );
-            preparedStatement.setString(3, c.getAdresse() );
-            preparedStatement.setString(4, c.getVille() );
-            preparedStatement.setInt(5, c.getCodePostal() );
-            preparedStatement.setString(6, c.getTel() );
-            preparedStatement.setString(7, c.getMotPasse() );
+            preparedStatement.setString(1, c.getNom());
+            preparedStatement.setString(2, c.getPrenom());
+            preparedStatement.setString(3, c.getAdresse());
+            preparedStatement.setString(4, c.getVille());
+            preparedStatement.setInt(5, c.getCodePostal());
+            preparedStatement.setString(6, c.getTel());
+            preparedStatement.setString(7, c.getMotPasse());
             preparedStatement.executeUpdate();
         }
     }

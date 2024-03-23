@@ -1,11 +1,8 @@
 CREATE TABLE categories(
-<<<<<<< HEAD
-                id INT PRIMARY KEY,
-                categorie varchar(30)
-=======
-                           id INT PRIMARY KEY AUTO_INCREMENT,
-                           categorie VARCHAR(30)
->>>>>>> b855993589bb469dca46efc3b0e4fdd3b2a78e80
+
+                id INT PRIMARY KEY AUTO_INCREMENT,
+                categorie VARCHAR(30)
+
 ); CREATE TABLE articles(
                             id INT PRIMARY KEY AUTO_INCREMENT,
                             designation VARCHAR(30),

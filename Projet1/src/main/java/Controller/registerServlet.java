@@ -2,13 +2,11 @@ package Controller;
 
 
 import Model.Client;
-<<<<<<< HEAD
+
 
 import Model.Iplementation.ClientDaoImpl;
 
-=======
-import Model.Iplementation.ClientDaoImpl;
->>>>>>> b855993589bb469dca46efc3b0e4fdd3b2a78e80
+
 import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
