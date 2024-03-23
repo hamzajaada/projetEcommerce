@@ -3,6 +3,7 @@ package Controller;
 
 import Model.Client;
 
+import Model.Client;
 
 import Model.Iplementation.ClientDaoImpl;
 
