@@ -9,7 +9,7 @@
 <body>
 <div class="container">
     <h2>Register</h2>
-    <form action="" method="post">
+    <form action="registerServlet" method="post">
         <div class="form-group">
             <label for="nom">Nom:</label>
             <input type="text" id="nom" name="nom" required>

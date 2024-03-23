@@ -6,10 +6,12 @@ public class Client {
     private String prenom;
     private String adresse;
     private String ville;
-    private String codePostal;
+    private int codePostal;
     private String tel;
 
-    public Client(int id, String nom, String prenom, String adresse, String ville, String codePostal, String tel) {
+    private String motPasse;
+
+    public Client(int id, String nom, String prenom, String adresse, String ville, int codePostal, String tel, String motPasse) {
         this.id = id;
         this.nom = nom;
         this.prenom = prenom;
@@ -17,15 +19,17 @@ public class Client {
         this.ville = ville;
         this.codePostal = codePostal;
         this.tel = tel;
+        this.motPasse = motPasse;
     }
 
-    public Client(String nom, String prenom, String adresse, String ville, String codePostal, String tel) {
+    public Client(String nom, String prenom, String adresse, String ville, int codePostal, String tel, String motPasse) {
         this.nom = nom;
         this.prenom = prenom;
         this.adresse = adresse;
         this.ville = ville;
         this.codePostal = codePostal;
         this.tel = tel;
+        this.motPasse = motPasse;
     }
 
     public Client() {
@@ -71,11 +75,11 @@ public class Client {
         this.ville = ville;
     }
 
-    public String getCodePostal() {
+    public int getCodePostal() {
         return codePostal;
     }
 
-    public void setCodePostal(String codePostal) {
+    public void setCodePostal(int codePostal) {
         this.codePostal = codePostal;
     }
 
@@ -85,5 +89,13 @@ public class Client {
 
     public void setTel(String tel) {
         this.tel = tel;
+    }
+
+    public String getMotPasse() {
+        return motPasse;
+    }
+
+    public void setMotPasse(String motPasse) {
+        this.motPasse = motPasse;
     }
 }
