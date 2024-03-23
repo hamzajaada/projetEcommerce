@@ -6,7 +6,7 @@ import java.sql.DriverManager;
 import java.sql.SQLException;
 
 public class DbConnection {
-    private static Connection con;
+    private static Connection con = null;
     private static String url = "jdbc:mysql://localhost:3306/ecomercejee";
 
     static {

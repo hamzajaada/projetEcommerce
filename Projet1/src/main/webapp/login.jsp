@@ -9,10 +9,10 @@
 <body>
 <div class="container">
     <h2>Login</h2>
-    <form action="" method="post">
+    <form action="loginServlet" method="post">
         <div class="form-group">
             <label for="username">Username:</label>
-            <input type="text" id="username" name="username" required>
+            <input type="text" id="username" name="nom" required>
         </div>
         <div class="form-group">
             <label for="password">Password:</label>
