@@ -2,10 +2,7 @@ package Controller;
 
 
 import Model.Client;
-<<<<<<< HEAD
-=======
 import Model.Iplementation.ClientDaoImpl;
->>>>>>> ca167d9b677a30e4c33a9099f939110ace8e91e6
 import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
@@ -15,6 +12,8 @@ import jakarta.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.sql.SQLException;
 
+import static java.lang.Integer.parseInt;
+
 @WebServlet(name = "registerServlet", urlPatterns = "/registerServlet")
 public class registerServlet extends HttpServlet {
     @Override
@@ -23,7 +22,7 @@ public class registerServlet extends HttpServlet {
         String prenom = req.getParameter("prenom");
         String adresse = req.getParameter("adresse");
         String ville = req.getParameter("ville");
-        String codePostal = req.getParameter("codePostal");
+        int codePostal = parseInt(req.getParameter("codePostal"));
         String tel = req.getParameter("tel");
         String motPasse = req.getParameter("motPasse");
 

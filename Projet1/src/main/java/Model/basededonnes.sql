@@ -1,25 +1,25 @@
 CREATE TABLE categories(
-                           id INT PRIMARY KEY,
-                           categorie varchar(30)
+                           id INT PRIMARY KEY AUTO_INCREMENT,
+                           categorie VARCHAR(30)
 ); CREATE TABLE articles(
-                            id INT PRIMARY KEY,
-                            designation varchar(30),
+                            id INT PRIMARY KEY AUTO_INCREMENT,
+                            designation VARCHAR(30),
                             prix FLOAT,
                             stock INT,
                             category_id INT,
                             FOREIGN KEY(category_id) REFERENCES categories(id),
-                            photo varchar(30)
+                            photo VARCHAR(30)
    ); CREATE TABLE clients(
-                              id INT PRIMARY KEY,
-                              nom varchar(30),
-                              prenom varchar(30),
-                              adresse varchar(30),
+                              id INT PRIMARY KEY AUTO_INCREMENT,
+                              nom VARCHAR(30),
+                              prenom VARCHAR(30),
+                              adresse VARCHAR(30),
                               codePostal INT,
-                              ville varchar(30),
-                              tel varchar(30),
-                              motPasse varchar(30)
+                              ville VARCHAR(30),
+                              tel VARCHAR(30),
+                              motPasse VARCHAR(30)
       ); CREATE TABLE commandes(
-                                   id INT PRIMARY KEY,
+                                   id INT PRIMARY KEY AUTO_INCREMENT,
                                    client_id INT,
                                    dateCommande DATE,
                                    FOREIGN KEY(client_id) REFERENCES clients(id)
