@@ -26,5 +26,4 @@ public class DbConnection {
     public static Connection getConnexion() {
         return con;
     }
-
 }
