@@ -14,7 +14,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Liste des articles</title>
+    <title>Catalogue</title>
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -32,52 +32,91 @@
             box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
         }
 
-        h2 {
+        h1, h2 {
             color: #333;
         }
 
-        ul {
-            list-style-type: none;
-            padding: 0;
+        select {
+            padding: 10px;
+            font-size: 16px;
+            margin-bottom: 20px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
             margin-top: 20px;
         }
 
-        li {
-            margin-bottom: 20px;
-            padding: 20px;
-            background-color: #fff;
-            border-radius: 8px;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-            transition: all 0.3s ease;
+        th, td {
+            padding: 12px 15px;
+            text-align: left;
+            border-bottom: 1px solid #ddd;
         }
 
-        li:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
+        th {
+            background-color: #f2f2f2;
         }
 
-        li h3 {
-            margin: 0;
-            color: #333;
+        td img {
+            max-width: 100px;
         }
 
-        li p {
-            margin: 0;
-            color: #666;
+        .btn {
+            padding: 10px 20px;
+            font-size: 16px;
+            text-align: center;
+            text-decoration: none;
+            color: #fff;
+            background-color: #007bff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        .btn:hover {
+            background-color: #0056b3;
         }
     </style>
 </head>
 <body>
 <div class="container">
-    <h2>Liste des articles</h2>
-    <ul>
+    <h1>Catalogue</h1>
+    <select>
+        <option value="all">Toutes les catégories</option>
+        <option value="all">Électronique</option>
+        <option value="all">Maison et jardin</option>
+        <option value="all">Sport et loisirs</option>
+        <option value="all"> Livres</option>
+    </select>
+    <table>
+        <thead>
+        <tr>
+            <th>Référence</th>
+            <th>Titre</th>
+            <th>Prix</th>
+            <th>Action</th>
+        </tr>
+        </thead>
+        <tbody>
         <% for (Article article : articles) { %>
-        <li>
-            <h3><%= article.getDesignation() %></h3>
-            <p>ID: <%= article.getId() %> | Prix: <%= article.getPrix() %></p>
-        </li>
+        <tr>
+            <td>
+                <form action="/Projet1_war_exploded/getArticle" method="post">
+                <input type="hidden" name="articleId" value="<%= article.getId() %>">
+                <button type="submit"><%= article.getId() %></button>
+                </form>
+            </td>
+            <td><%= article.getDesignation() %></td>
+            <td><%= article.getPrix() %></td>
+            <td><button class="btn">Ajouter au panier</button></td>
+        </tr>
         <% } %>
-    </ul>
+        </tbody>
+    </table>
 </div>
 </body>
 </html>
