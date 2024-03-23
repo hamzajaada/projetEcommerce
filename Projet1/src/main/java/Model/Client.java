@@ -9,7 +9,9 @@ public class Client {
     private String codePostal;
     private String tel;
 
-    public Client(int id, String nom, String prenom, String adresse, String ville, String codePostal, String tel) {
+    private String motPasse;
+
+    public Client(int id, String nom, String prenom, String adresse, String ville, String codePostal, String tel, String motPasse) {
         this.id = id;
         this.nom = nom;
         this.prenom = prenom;
@@ -17,15 +19,17 @@ public class Client {
         this.ville = ville;
         this.codePostal = codePostal;
         this.tel = tel;
+        this.motPasse = motPasse;
     }
 
-    public Client(String nom, String prenom, String adresse, String ville, String codePostal, String tel) {
+    public Client(String nom, String prenom, String adresse, String ville, String codePostal, String tel, String motPasse) {
         this.nom = nom;
         this.prenom = prenom;
         this.adresse = adresse;
         this.ville = ville;
         this.codePostal = codePostal;
         this.tel = tel;
+        this.motPasse = motPasse;
     }
 
     public Client() {
@@ -85,5 +89,13 @@ public class Client {
 
     public void setTel(String tel) {
         this.tel = tel;
+    }
+
+    public String getMotPasse() {
+        return motPasse;
+    }
+
+    public void setMotPasse(String motPasse) {
+        this.motPasse = motPasse;
     }
 }
