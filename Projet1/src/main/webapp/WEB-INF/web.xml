@@ -4,6 +4,14 @@
          xsi:schemaLocation="https://jakarta.ee/xml/ns/jakartaee https://jakarta.ee/xml/ns/jakartaee/web-app_5_0.xsd"
          version="5.0">
     <welcome-file-list>
-        <welcome-file>bienvenue1.jsp</welcome-file>
+        <welcome-file>Bienvenue.jsp</welcome-file>
     </welcome-file-list>
+    <context-param>
+        <param-name>adminUsername</param-name>
+        <param-value>Admin</param-value>
+    </context-param>
+    <context-param>
+        <param-name>adminPassword</param-name>
+        <param-value>1230</param-value>
+    </context-param>
 </web-app>

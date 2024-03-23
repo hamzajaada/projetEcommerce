@@ -7,11 +7,10 @@ import Model.Client;
 import Model.Iplementation.ClientDaoImpl;
 
 
+import jakarta.servlet.RequestDispatcher;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.WebServlet;
-import jakarta.servlet.http.HttpServlet;
-import jakarta.servlet.http.HttpServletRequest;
-import jakarta.servlet.http.HttpServletResponse;
+import jakarta.servlet.http.*;
 
 import java.io.IOException;
 import java.sql.SQLException;
@@ -30,11 +29,13 @@ public class registerServlet extends HttpServlet {
         String tel = req.getParameter("tel");
         String motPasse = req.getParameter("motPasse");
 
-        Client c = new Client(nom,prenom,adresse,ville,codePostal,tel,motPasse);
+        Client c = new Client(nom,prenom,adresse,codePostal,ville,tel,motPasse);
         ClientDaoImpl clientDao = new ClientDaoImpl();
+
         try {
             clientDao.AddClient(c);
             System.out.println("client added successful");
+            resp.sendRedirect(req.getContextPath() + "/login.jsp");
         } catch (SQLException e) {
             throw new RuntimeException(e);
         }

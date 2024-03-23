@@ -1,10 +1,13 @@
 package Controller;
 
+import Model.Iplementation.ClientDaoImpl;
+import jakarta.servlet.RequestDispatcher;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.*;
 
 import java.io.IOException;
+import java.io.PrintWriter;
 import java.util.Objects;
 
 @WebServlet(name = "loginServlet", urlPatterns = "/loginServlet")
@@ -17,8 +20,21 @@ public class loginServlet extends HttpServlet {
         String adminUsername = getInitParameter("adminUsername");
         String adminPassword = getInitParameter("adminPassword");
 
+        ClientDaoImpl clientDao = new ClientDaoImpl();
         if(Objects.equals(nom, adminUsername) && Objects.equals(motPasse , adminPassword)) {
-
+            HttpSession session = req.getSession(true);
+            session.setAttribute("nomAdmin", adminUsername );
+            req.setAttribute("nomAdmin",adminUsername);
+            RequestDispatcher view = req.getRequestDispatcher("homeAdmin.jsp");
+            view.forward(req,resp);
+        } else if(clientDao.finClientByUsernameAndPassword(nom,motPasse)) {
+            HttpSession session = req.getSession(true);
+            session.setAttribute("nom", adminUsername );
+            req.setAttribute("nomAdmin",adminUsername);
+            RequestDispatcher view = req.getRequestDispatcher("bienvenue1.jsp");
+            view.forward(req,resp);
+        } else {
+            resp.sendRedirect(req.getContextPath() + "/login.jsp");
         }
     }
 }
