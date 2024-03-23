@@ -1,6 +1,6 @@
 CREATE TABLE categories(
-                           id INT PRIMARY KEY,
-                           categorie varchar(30)
+                id INT PRIMARY KEY,
+                categorie varchar(30)
 ); CREATE TABLE articles(
                             id INT PRIMARY KEY,
                             designation varchar(30),

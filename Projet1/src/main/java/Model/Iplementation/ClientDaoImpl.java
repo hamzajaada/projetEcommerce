@@ -14,13 +14,9 @@ public class ClientDaoImpl implements ClientDao {
     private static final String INSERT_CLIENT_SQL = "insert into clients(nom,prenom,adresse,ville,codePostal,tel,motPasse) values (?,?,?,?,?,?,?)";
     private static final String FIND_CLIENT_SQL = "select * from clients where id = ?";
     private static final String FIND_CLIENT_EXIST_SQL = "select * from clients where email = ? and password = ?";
+
     @Override
     public void AddClient(Client c) throws SQLException {
-
-
-    @Override
-    public void AddClient(Client c) {
-
 
         try (Connection connection = DbConnection.getConnexion();
             PreparedStatement preparedStatement = connection.prepareStatement(INSERT_CLIENT_SQL)) {

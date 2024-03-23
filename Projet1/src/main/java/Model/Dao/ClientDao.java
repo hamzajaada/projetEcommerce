@@ -1,10 +1,9 @@
 package Model.Dao;
 
-<<<<<<< HEAD
+
 
 import Model.Client;
-=======
->>>>>>> ca167d9b677a30e4c33a9099f939110ace8e91e6
+
 
 import Model.Client;
 
