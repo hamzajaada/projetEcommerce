@@ -69,23 +69,42 @@
 <body>
 <div class="container">
     <h2>Liste des articles</h2>
-    <ul>
+    <table>
+        <thead>
+        <tr>
+            <th>Référence</th>
+            <th>Titre</th>
+            <th>Prix</th>
+            <th>Action</th>
+        </tr>
+        </thead>
+        <tbody>
         <% for (Article article : articles) { %>
-        <li>
-            <h3><%= article.getDesignation() %></h3>
-            <p>ID: <%= article.getId() %> | Prix: <%= article.getPrix() %></p>
-            <form method="post" action ="./AdminEdit.jsp" >
+        <tr>
+            <td>
+                <form action="/Projet1_war_exploded/getArticle" method="post">
+                    <input type="hidden" name="articleId" value="<%= article.getId() %>">
+                    <button type="submit"><%= article.getId() %></button>
+                </form>
+            </td>
+            <td><%= article.getDesignation() %></td>
+            <td><%= article.getPrix() %></td>
+            <td>
+                <form method="post" action ="./AdminEdit.jsp" >
                 <input type="hidden" name="idArticle" value="<%= article.getId()%>" />
-                <input type="hidden" name="designationArticle" value="<%= article.getDesignation()%>" />
-                <input type="hidden" name="prixArticle" value="<%= article.getPrix()%>" />
-                <input type="hidden" name="stockArticle" value="<%= article.getStock()%>" />
-                <input type="hidden" name="idCatArticle" value="<%= article.getCategory_id()%>" />
-                <input type="hidden" name="photoArticle" value="<%= article.getPhoto()%>" />
                 <input type="submit" value="Editer"/>
             </form>
-        </li>
+                <form method="post" action ="./AdminSupprimer.jsp" >
+                    <input type="hidden" name="idArticle" value="<%= article.getId()%>" />
+                    <input type="submit" value="Editer"/>
+                </form>
+            </td>
+        </tr>
         <% } %>
-    </ul>
+        </tbody>
+    </table>
+    <a href="AdminAjouter.jsp">Ajouter Un Produit</a>
+    <a href="AdminCommandes.jsp">Consulter les Commandes</a>
 </div>
 </body>
 </html>
