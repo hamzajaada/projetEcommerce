@@ -16,10 +16,8 @@ public class loginServlet extends HttpServlet {
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         String nom = req.getParameter("nom");
         String motPasse = req.getParameter("password");
-
         String adminUsername = getInitParameter("adminUsername");
         String adminPassword = getInitParameter("adminPassword");
-
         ClientDaoImpl clientDao = new ClientDaoImpl();
         if(Objects.equals(nom, adminUsername) && Objects.equals(motPasse , adminPassword)) {
             HttpSession session = req.getSession(true);

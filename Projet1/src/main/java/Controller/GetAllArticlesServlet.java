@@ -24,4 +24,5 @@ public class GetAllArticlesServlet extends HttpServlet {
         request.setAttribute("articles" , articles);
         request.getRequestDispatcher("home.jsp").forward(request,response);
     }
+
 }
