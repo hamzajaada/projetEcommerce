@@ -6,6 +6,7 @@ import Model.DbConnection;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -29,4 +30,31 @@ public class ArticlesDaoimpl {
        }
        return  Articles;
    }
+    public Article getArticleById(int id) {
+        Article article = null;
+        con = DbConnection.getConnexion();
+        String request = "SELECT * FROM articles WHERE id = ?";
+        try {
+            stm = con.prepareStatement(request);
+            stm.setInt(1, id);
+            rs = stm.executeQuery();
+            if (rs.next()) {
+                article = new Article(rs.getInt(1), rs.getString(2), rs.getDouble(3), rs.getInt(4), rs.getInt(5), rs.getString(6));
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        } finally {
+            try {
+                if (rs != null) {
+                    rs.close();
+                }
+                if (stm != null) {
+                    stm.close();
+                }
+            } catch (SQLException e) {
+                e.printStackTrace();
+            }
+        }
+        return article;
+    }
 }
