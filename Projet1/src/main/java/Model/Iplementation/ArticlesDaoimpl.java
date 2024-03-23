@@ -1,4 +1,7 @@
-package Model;
+package Model.Iplementation;
+
+import Model.Article;
+import Model.DbConnection;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;

@@ -1,7 +1,6 @@
-package Dao;
+package Model.Dao;
 
 import Classes.Client;
-import jakarta.validation.constraints.Max;
 
 import java.util.List;
 
