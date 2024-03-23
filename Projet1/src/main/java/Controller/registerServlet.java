@@ -1,6 +1,6 @@
 package Controller;
 
-import Classes.Client;
+import Model.Client;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
