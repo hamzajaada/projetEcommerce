@@ -6,12 +6,12 @@ public class Client {
     private String prenom;
     private String adresse;
     private String ville;
-    private String codePostal;
+    private int codePostal;
     private String tel;
 
     private String motPasse;
 
-    public Client(int id, String nom, String prenom, String adresse, String ville, String codePostal, String tel, String motPasse) {
+    public Client(int id, String nom, String prenom, String adresse, String ville, int codePostal, String tel, String motPasse) {
         this.id = id;
         this.nom = nom;
         this.prenom = prenom;
@@ -22,7 +22,7 @@ public class Client {
         this.motPasse = motPasse;
     }
 
-    public Client(String nom, String prenom, String adresse, String ville, String codePostal, String tel, String motPasse) {
+    public Client(String nom, String prenom, String adresse, String ville, int codePostal, String tel, String motPasse) {
         this.nom = nom;
         this.prenom = prenom;
         this.adresse = adresse;
@@ -75,11 +75,11 @@ public class Client {
         this.ville = ville;
     }
 
-    public String getCodePostal() {
+    public int getCodePostal() {
         return codePostal;
     }
 
-    public void setCodePostal(String codePostal) {
+    public void setCodePostal(int codePostal) {
         this.codePostal = codePostal;
     }
 
