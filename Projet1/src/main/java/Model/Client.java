@@ -22,7 +22,7 @@ public class Client {
         this.motPasse = motPasse;
     }
 
-    public Client(String nom, String prenom, String adresse, String ville, int codePostal, String tel, String motPasse) {
+    public Client(String nom, String prenom, String adresse, int codePostal, String ville, String tel, String motPasse) {
         this.nom = nom;
         this.prenom = prenom;
         this.adresse = adresse;
@@ -34,6 +34,8 @@ public class Client {
 
     public Client() {
     }
+
+
 
     public int getId() {
         return id;

@@ -6,4 +6,12 @@
     <welcome-file-list>
         <welcome-file>Bienvenue.jsp</welcome-file>
     </welcome-file-list>
+    <context-param>
+        <param-name>adminUsername</param-name>
+        <param-value>Admin</param-value>
+    </context-param>
+    <context-param>
+        <param-name>adminPassword</param-name>
+        <param-value>1230</param-value>
+    </context-param>
 </web-app>
