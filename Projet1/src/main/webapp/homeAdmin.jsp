@@ -90,13 +90,14 @@
             <td><%= article.getDesignation() %></td>
             <td><%= article.getPrix() %></td>
             <td>
+                <% int idArticle = article.getId(); %>
                 <form method="post" action ="./AdminEdit.jsp" >
-                <input type="hidden" name="idArticle" value="<%= article.getId()%>" />
+                <input type="hidden" name="idArticle" value="<%= idArticle %>" />
                 <input type="submit" value="Editer"/>
-            </form>
+                </form>
                 <form method="post" action ="./AdminSupprimer.jsp" >
-                    <input type="hidden" name="idArticle" value="<%= article.getId()%>" />
-                    <input type="submit" value="Editer"/>
+                    <input type="hidden" name="idArticle" value="<%= idArticle %>" />
+                    <input type="submit" value="supprimer"/>
                 </form>
             </td>
         </tr>
