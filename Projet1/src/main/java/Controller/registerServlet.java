@@ -1,18 +1,10 @@
 package Controller;
 
-
 import Model.Client;
-
-import Model.Client;
-
 import Model.Iplementation.ClientDaoImpl;
-
-
-import jakarta.servlet.RequestDispatcher;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.*;
-
 import java.io.IOException;
 import java.sql.SQLException;
 
@@ -40,6 +32,5 @@ public class registerServlet extends HttpServlet {
         } catch (SQLException e) {
             throw new RuntimeException(e);
         }
-
     }
 }

@@ -1,9 +1,7 @@
 package Model.Iplementation;
 
-
 import Model.Categorie;
 import Model.DbConnection;
-
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;

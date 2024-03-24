@@ -89,13 +89,6 @@
 <body>
 <div class="container">
     <h1>Catalogue</h1>
-    <select>
-        <option value="all">Toutes les catégories</option>
-        <option value="all">Électronique</option>
-        <option value="all">Maison et jardin</option>
-        <option value="all">Sport et loisirs</option>
-        <option value="all"> Livres</option>
-    </select>
     <table>
         <thead>
         <tr>

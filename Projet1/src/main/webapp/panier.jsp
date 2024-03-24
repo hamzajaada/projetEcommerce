@@ -24,10 +24,11 @@
             <%
                 HttpSession SessionApp = request.getSession(false);
                 List<Article> articleList = (List<Article>) SessionApp.getAttribute("panier");
-                if (articleList.isEmpty()) { %>
+                if (articleList == null ) { %>
             <tr>
-                <td>Votre panier est vide</td>
+                <td colspan="4">Votre panier est vide</td>
             </tr>
+
             <% } else {
                 for (Article article : articleList) { %>
             <tr>
@@ -44,10 +45,14 @@
         </table>
         <div class="actions-container">
             <div class="actions">
-                <a class="custom-link" href="home.jsp">Commander un autre disque</a>
-                <% if (!articleList.isEmpty()) { %>
+
+                <% if (articleList != null && !articleList.isEmpty()) { %>
+                <a class="custom-link" href="home.jsp">Commander un autre artcile</a>
                 <button type="submit">Enregistrer votre commande</button>
+                <% } else if (articleList == null) { %>
+                <a class="custom-link" href="home.jsp">Commander un artcile</a>
                 <% } %>
+
             </div>
         </div>
     </form>

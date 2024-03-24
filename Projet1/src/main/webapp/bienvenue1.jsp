@@ -46,10 +46,14 @@
 </head>
 <body>
 <div class="container">
-    <h1>Bonjour Monsieur User</h1>
+    <%
+        HttpSession SessionApp = request.getSession(false);
+        String nom = (String) SessionApp.getAttribute("nom");
+    %>
+    <h1>Bonjour Monsieur <%= nom %></h1>
     <a href="home.jsp" class="button">Consulter le catalogue</a>
-    <a href="#" class="button">Suivre vos commandes</a>
-    <a href="#" class="button">Visualiser votre panier</a>
+    <a href="./CommandesClient" class="button">Suivre vos commandes</a>
+    <a href="panier.jsp" class="button">Visualiser votre panier</a>
 </div>
 </body>
 </html>

@@ -1,14 +1,14 @@
 package Model.Iplementation;
+
 import Model.Client;
 import Model.Dao.ClientDao;
-
 import Model.DbConnection;
-
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.List;
+
 public class ClientDaoImpl implements ClientDao {
     private  final Connection connection = DbConnection.getConnexion();
     private static final String INSERT_CLIENT_SQL = "insert into clients(nom,prenom,adresse,ville,codePostal,tel,motPasse) values (?,?,?,?,?,?,?)";
@@ -83,5 +83,5 @@ public class ClientDaoImpl implements ClientDao {
     @Override
     public List<Client> getAllClient() {
         return null;
-    }}
-
+    }
+}

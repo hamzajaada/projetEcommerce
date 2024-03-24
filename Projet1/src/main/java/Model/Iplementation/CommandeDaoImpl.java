@@ -2,7 +2,6 @@ package Model.Iplementation;
 
 import Model.Commande;
 import Model.DbConnection;
-
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -20,7 +19,7 @@ public class CommandeDaoImpl {
             con = DbConnection.getConnexion();
             String query = "INSERT INTO commandes (client_id, dateCommande) VALUES (?, ?)";
             stm = con.prepareStatement(query, Statement.RETURN_GENERATED_KEYS);
-            stm.setInt(1, commande.getClient().getId());
+            stm.setInt(1, commande.getClient());
             stm.setDate(2, new java.sql.Date(commande.getDateCommande().getTime()));
             stm.executeUpdate();
 

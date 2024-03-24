@@ -58,7 +58,7 @@ public class Panier  extends HttpServlet {
             try {
                 // Enregistrer la commande
                 Commande commande = new Commande();
-                commande.setClient(cl);
+                commande.setClient(cl.getId());
                 commande.setDateCommande(dateCommande);
                 int commandeId = commandeDao.addCommande(commande);
 
@@ -75,7 +75,8 @@ public class Panier  extends HttpServlet {
                     ligneCommande.setQteCde(quantite);
                     ligneCommandeDao.addLigneCommande(ligneCommande);
                 }
-                resp.sendRedirect(req.getContextPath() + "/confirmation.jsp");
+                session.removeAttribute("panier");
+                resp.sendRedirect(req.getContextPath() + "/CommandesClient");
             } catch (SQLException e) {
                 e.printStackTrace();
             }
@@ -83,4 +84,5 @@ public class Panier  extends HttpServlet {
             resp.sendRedirect(req.getContextPath() + "/panier.jsp");
         }
     }
+
 }
