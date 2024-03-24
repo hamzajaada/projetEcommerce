@@ -20,14 +20,14 @@ public class loginServlet extends HttpServlet {
         String adminUsername = getServletContext().getInitParameter("adminUsername");
         String adminPassword = getServletContext().getInitParameter("adminPassword");
         ClientDaoImpl clientDao = new ClientDaoImpl();
-        Client c = clientDao.finClientByUsernameAndPassword(nom,motPasse);
-        if((nom.equals(adminUsername)) && (motPasse.equals(adminPassword))){
+        Client c = clientDao.finClientByUsernameAndPassword(nom, motPasse);
 
+        if (adminUsername.equals(nom) && adminPassword.equals(motPasse)) {
             resp.sendRedirect(req.getContextPath() + "/homeAdmin.jsp");
-        } else if(c != null) {
+        } else if (c != null) {
             HttpSession session = req.getSession(true);
-            session.setAttribute("nom", c.getNom() );
-            session.setAttribute("idClient", c.getId() );
+            session.setAttribute("nom", c.getNom());
+            session.setAttribute("idClient", c.getId());
             resp.sendRedirect(req.getContextPath() + "/bienvenue1.jsp");
         } else {
             resp.sendRedirect(req.getContextPath() + "/login.jsp");
