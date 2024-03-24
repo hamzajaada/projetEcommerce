@@ -18,7 +18,7 @@ public class ClientDaoImpl implements ClientDao {
     @Override
     public void AddClient(Client c) throws SQLException {
         try (
-            PreparedStatement preparedStatement = connection.prepareStatement(INSERT_CLIENT_SQL)) {
+                PreparedStatement preparedStatement = connection.prepareStatement(INSERT_CLIENT_SQL)) {
             preparedStatement.setString(1, c.getNom());
             preparedStatement.setString(2, c.getPrenom());
             preparedStatement.setString(3, c.getAdresse());
