@@ -5,8 +5,12 @@
 
 <%
     // Récupération des articles depuis la base de données
+    System.out.println("avant");
     ArticlesDaoimpl articlesDao = new ArticlesDaoimpl();
     List<Article> articles = articlesDao.getAllArticle();
+    System.out.println("les articles :");
+    System.out.println(articles);
+    System.out.println("apres");
 %>
 
 <!DOCTYPE html>
@@ -105,7 +109,7 @@
         <% for (Article article : articles) { %>
         <tr>
             <td>
-                <form action="/Projet1_war_exploded/getArticle" method="post">
+                <form action="/Projet1_war_exploded//getArticle" method="post">
                 <input type="hidden" name="articleId" value="<%= article.getId() %>">
                 <button type="submit"><%= article.getId() %></button>
                 </form>

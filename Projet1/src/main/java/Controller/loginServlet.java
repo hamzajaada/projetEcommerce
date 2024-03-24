@@ -28,9 +28,7 @@ public class loginServlet extends HttpServlet {
         } else if(clientDao.finClientByUsernameAndPassword(nom,motPasse)) {
             HttpSession session = req.getSession(true);
             session.setAttribute("nom", adminUsername );
-            req.setAttribute("nomAdmin",adminUsername);
-            RequestDispatcher view = req.getRequestDispatcher("bienvenue1.jsp");
-            view.forward(req,resp);
+            resp.sendRedirect(req.getContextPath() + "/bienvenue1.jsp");
         } else {
             resp.sendRedirect(req.getContextPath() + "/login.jsp");
         }
