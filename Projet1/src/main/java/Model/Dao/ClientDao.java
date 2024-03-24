@@ -10,6 +10,6 @@ public interface ClientDao {
     public void AddClient(Client c) throws SQLException;
 
     public Client findClientById(int id);
-    public boolean finClientByUsernameAndPassword(String username, String password);
+    public Client finClientByUsernameAndPassword(String username, String password);
     public List<Client> getAllClient();
 }

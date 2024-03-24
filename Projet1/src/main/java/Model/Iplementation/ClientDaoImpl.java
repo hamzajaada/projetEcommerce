@@ -33,21 +33,35 @@ public class ClientDaoImpl implements ClientDao {
 
     @Override
     public Client findClientById(int id) {
-        return null;
+        Client cl = null;
+        try (PreparedStatement preparedStatement = connection.prepareStatement(FIND_CLIENT_SQL)) {
+            preparedStatement.setInt(1, id);
+            try (ResultSet rs = preparedStatement.executeQuery()) {
+                while(rs.next()){
+                    cl = new Client(rs.getInt(1),rs.getString(2),rs.getString(3),rs.getString(4),rs.getString(4),rs.getInt(6),rs.getString(7),rs.getString(8));
+                }
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return cl;
     }
 
     @Override
-    public boolean finClientByUsernameAndPassword(String username, String password) {
+    public Client finClientByUsernameAndPassword(String username, String password) {
+        Client c = null;
         try (PreparedStatement preparedStatement = connection.prepareStatement(FIND_CLIENT_EXIST_SQL)) {
             preparedStatement.setString(1, username);
             preparedStatement.setString(2, password);
             try (ResultSet rs = preparedStatement.executeQuery()) {
-                return rs.next();
+                while(rs.next()){
+                    c = new Client(rs.getInt(1),rs.getString(2),rs.getString(3),rs.getString(4),rs.getString(4),rs.getInt(6),rs.getString(7),rs.getString(8));
+                }
             }
         } catch (SQLException e) {
-            e.printStackTrace(); // Log l'exception pour comprendre la cause du problème
+            e.printStackTrace();
         }
-        return false;
+        return c;
     }
 
     @Override
