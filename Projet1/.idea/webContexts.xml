@@ -3,7 +3,11 @@
   <component name="WebContextManager">
     <option name="state">
       <map>
+<<<<<<< HEAD
         <entry key="file://$PROJECT_DIR$/src/main/webapp/AdminEdit.jsp" value="file://$PROJECT_DIR$/src/main/webapp" />
+=======
+        <entry key="file://$PROJECT_DIR$/src/main/webapp/panier.jsp" value="file://$PROJECT_DIR$/src/main/webapp" />
+>>>>>>> b96a45841c62ebe7ea31ac3da99d0500e58a9914
       </map>
     </option>
   </component>
