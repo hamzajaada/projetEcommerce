@@ -21,15 +21,15 @@
             <c:forEach var="row" items="${result.rows}">
             <input type="hidden" name="idArticle" value="${row.id}" />
             <label for="newDesignation">Nouvelle désignation:</label>
-            <input type="text" id="newDesignation" name="newDesignation" value="${row.designation}" /><br/>
+            <input type="text" id="newDesignation" name="newDesignation" value="${row.designation}" /><br/><br>
             <label for="newPrix">Nouveau prix:</label>
-            <input type="text" id="newPrix" name="newPrix" value="${row.prix}" /><br/>
+            <input type="text" id="newPrix" name="newPrix" value="${row.prix}" /><br><br/>
             <label for="newStock">Nouveau stock:</label>
-            <input type="text" id="newStock" name="newStock" value="${row.stock}" /><br/>
+            <input type="text" id="newStock" name="newStock" value="${row.stock}" /><br><br/>
             <label for="newIdCat">Nouvel ID Catégorie:</label>
-            <input type="text" id="newIdCat" name="newIdCat" value="${row.category_id}" /><br/>
+            <input type="text" id="newIdCat" name="newIdCat" value="${row.category_id}" /><br><br/>
             <label for="newPhoto">Nouvelle photo:</label>
-            <input type="text" id="newPhoto" name="newPhoto" value="${row.photo}" /><br/>
+            <input type="text" id="newPhoto" name="newPhoto" value="${row.photo}" /><br><br/>
             <input type="submit" value="Mettre à jour l'article"/>
             </c:forEach>
         </form><br/><br/>
