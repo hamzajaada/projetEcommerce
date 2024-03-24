@@ -46,4 +46,22 @@ public class ArticlesDaoimpl {
         }
         return article;
     }
+
+    public void updateArticle(Article article) throws SQLException {
+
+        try {
+            con = DbConnection.getConnexion();
+            String query = "UPDATE articles SET designation = ?, prix = ?, stock = ?, category_id = ?, photo = ? WHERE id = ?";
+            stm = con.prepareStatement(query);
+            stm.setString(1, article.getDesignation());
+            stm.setDouble(2, article.getPrix());
+            stm.setInt(3, article.getStock());
+            stm.setInt(4, article.getCategory_id());
+            stm.setString(5, article.getPhoto());
+            stm.setInt(6, article.getId());
+            stm.executeUpdate();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+    }
 }
