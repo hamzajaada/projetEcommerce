@@ -41,7 +41,7 @@ public class Panier  extends HttpServlet {
         resp.sendRedirect(req.getContextPath() + "/panier.jsp");
     }
 
-    @Override
+    /*@Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         HttpSession session = req.getSession(false);
         List<Article> panier = (List<Article>) session.getAttribute("panier");
@@ -75,6 +75,50 @@ public class Panier  extends HttpServlet {
                 commande.setDateCommande(dateCommande);
                 commandeDao.addCommande(commande);
 
+                resp.sendRedirect(req.getContextPath() + "/confirmation.jsp");
+            } catch (SQLException e) {
+                e.printStackTrace();
+            }
+        } else {
+            resp.sendRedirect(req.getContextPath() + "/panier.jsp");
+        }
+    }*/
+
+    @Override
+    protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+        HttpSession session = req.getSession(false);
+        List<Article> panier = (List<Article>) session.getAttribute("panier");
+        int idClient = (Integer) session.getAttribute("idClient");
+        ClientDaoImpl clientDao = new ClientDaoImpl();
+        Client cl = clientDao.findClientById(idClient);
+
+        if (panier != null && !panier.isEmpty()) {
+            ArticlesDaoimpl articleDao = new ArticlesDaoimpl();
+            CommandeDaoImpl commandeDao = new CommandeDaoImpl();
+            LignesCommandeDaoImpl ligneCommandeDao = new LignesCommandeDaoImpl();
+            Date dateCommande = new Date();
+
+            try {
+                // Enregistrer la commande
+                Commande commande = new Commande();
+                commande.setClient(cl);
+                commande.setDateCommande(dateCommande);
+                int commandeId = commandeDao.addCommande(commande);
+
+                // Enregistrer les lignes de commande
+                for (Article article : panier) {
+                    int quantite = Integer.parseInt(req.getParameter( "quantity_" + article.getId()));
+
+                    int newStock = article.getStock() - quantite;
+                    article.setStock(newStock);
+                    articleDao.updateArticle(article);
+
+                    LignesCommande ligneCommande = new LignesCommande();
+                    ligneCommande.setCommandeId(commandeId);
+                    ligneCommande.setArticleId(article.getId());
+                    ligneCommande.setQteCde(quantite);
+                    ligneCommandeDao.addLigneCommande(ligneCommande);
+                }
                 resp.sendRedirect(req.getContextPath() + "/confirmation.jsp");
             } catch (SQLException e) {
                 e.printStackTrace();

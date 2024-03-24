@@ -14,7 +14,7 @@ public class LignesCommandeDaoImpl {
     public void addLigneCommande(LignesCommande ligneCommande) throws SQLException {
         try {
             con = DbConnection.getConnexion();
-            String query = "INSERT INTO lignesCommande (commande_id, article_id, qteCde) VALUES (?, ?, ?)";
+            String query = "INSERT INTO lignescommande (commande_id, article_id, qteCde) VALUES (?, ?, ?)";
             stm = con.prepareStatement(query);
             stm.setInt(1, ligneCommande.getCommandeId());
             stm.setInt(2, ligneCommande.getArticleId());

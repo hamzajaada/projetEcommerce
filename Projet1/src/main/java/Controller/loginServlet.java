@@ -22,7 +22,6 @@ public class loginServlet extends HttpServlet {
         ClientDaoImpl clientDao = new ClientDaoImpl();
         Client c = clientDao.finClientByUsernameAndPassword(nom,motPasse);
         if((nom.equals(adminUsername)) && (motPasse.equals(adminPassword))){
-
             resp.sendRedirect(req.getContextPath() + "/homeAdmin.jsp");
         } else if(c != null) {
             HttpSession session = req.getSession(true);

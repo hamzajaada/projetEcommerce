@@ -38,7 +38,15 @@ public class ClientDaoImpl implements ClientDao {
             preparedStatement.setInt(1, id);
             try (ResultSet rs = preparedStatement.executeQuery()) {
                 while(rs.next()){
-                    cl = new Client(rs.getInt(1),rs.getString(2),rs.getString(3),rs.getString(4),rs.getString(4),rs.getInt(6),rs.getString(7),rs.getString(8));
+                    cl = new Client(
+                            rs.getInt("id"),
+                            rs.getString("nom"),
+                            rs.getString("prenom"),
+                            rs.getString("adresse"),
+                            rs.getString("ville"),
+                            rs.getInt("codePostal"),
+                            rs.getString("tel"),
+                            rs.getString("motPasse"));
                 }
             }
         } catch (SQLException e) {
@@ -55,7 +63,15 @@ public class ClientDaoImpl implements ClientDao {
             preparedStatement.setString(2, password);
             try (ResultSet rs = preparedStatement.executeQuery()) {
                 while(rs.next()){
-                    c = new Client(rs.getInt(1),rs.getString(2),rs.getString(3),rs.getString(4),rs.getString(4),rs.getInt(6),rs.getString(7),rs.getString(8));
+                    c = new Client(
+                            rs.getInt("id"),
+                            rs.getString("nom"),
+                            rs.getString("prenom"),
+                            rs.getString("adresse"),
+                            rs.getString("ville"),
+                            rs.getInt("codePostal"),
+                            rs.getString("tel"),
+                            rs.getString("motPasse"));
                 }
             }
         } catch (SQLException e) {
