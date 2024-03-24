@@ -16,15 +16,12 @@ public class loginServlet extends HttpServlet {
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         String nom = req.getParameter("nom");
         String motPasse = req.getParameter("password");
-        String adminUsername = getInitParameter("adminUsername");
-        String adminPassword = getInitParameter("adminPassword");
+        String adminUsername = getServletContext().getInitParameter("adminUsername");
+        String adminPassword = getServletContext().getInitParameter("adminPassword");
         ClientDaoImpl clientDao = new ClientDaoImpl();
-        if(Objects.equals(nom, adminUsername) && Objects.equals(motPasse , adminPassword)) {
-            HttpSession session = req.getSession(true);
-            session.setAttribute("nomAdmin", adminUsername );
-            req.setAttribute("nomAdmin",adminUsername);
-            RequestDispatcher view = req.getRequestDispatcher("homeAdmin.jsp");
-            view.forward(req,resp);
+        if((nom.equals(adminUsername)) && (motPasse.equals(adminPassword))){
+
+            resp.sendRedirect(req.getContextPath() + "/homeAdmin.jsp");
         } else if(clientDao.finClientByUsernameAndPassword(nom,motPasse)) {
             HttpSession session = req.getSession(true);
             session.setAttribute("nom", adminUsername );
