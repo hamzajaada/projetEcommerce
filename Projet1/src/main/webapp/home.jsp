@@ -109,14 +109,14 @@
         <% for (Article article : articles) { %>
         <tr>
             <td>
-                <form action="/Projet1_war_exploded//getArticle" method="post">
+                <form action="/Projet1_war_exploded/getArticle" method="post">
                 <input type="hidden" name="articleId" value="<%= article.getId() %>">
                 <button type="submit"><%= article.getId() %></button>
                 </form>
             </td>
             <td><%= article.getDesignation() %></td>
             <td><%= article.getPrix() %></td>
-            <td><button class="btn">Ajouter au panier</button></td>
+            <td><a href="Panier?id=<%= article.getId() %>" class="btn">Ajouter au panier</a></td>
         </tr>
         <% } %>
         </tbody>

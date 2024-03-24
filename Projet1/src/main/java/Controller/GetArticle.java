@@ -21,5 +21,9 @@ public class GetArticle extends HttpServlet {
         Article article = Ad.getArticleById(id);
         req.setAttribute("article" , article);
         req.getRequestDispatcher("datail.jsp").forward(req,resp);
+
+
+
+
     }
 }
