@@ -32,4 +32,6 @@ public class Panier  extends HttpServlet {
 
         resp.sendRedirect(req.getContextPath() + "/panier.jsp");
     }
+
+
 }

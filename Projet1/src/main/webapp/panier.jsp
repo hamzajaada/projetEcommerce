@@ -34,7 +34,7 @@
             <td><%= article.getDesignation() %></td>
             <td><%= article.getCategory_id() %></td>
             <td>
-                <form action="" method="post">
+                <form action="/Panier" method="post">
                     <input type="number" name="<%= article.getId() %>_quantity" value="1" min="1" max="<%= article.getStock() %>">
                 </form>
             </td>
